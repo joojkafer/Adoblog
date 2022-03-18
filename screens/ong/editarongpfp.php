@@ -144,7 +144,7 @@
 
                         echo "
                             <li class='nav-item'> 
-                                <a class='nav-link active' href='$url' style='padding-right:18px;'>";
+                                <a class='nav-link active' href='../$url' style='padding-right:18px;'>";
                                     print($nome); 
                         echo "  </a> 
                             </li>";

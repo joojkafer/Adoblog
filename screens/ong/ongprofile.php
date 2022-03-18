@@ -10,17 +10,24 @@
     if(isset($_GET['pfp'])){
         $id = $_GET['pfp'];
 
-        if($id == $_SESSION['ong_id']){
-            $donodaong = true;
+        if($_SESSION['tipo'] == "ADMIN"){
+
+        }else{
+            if($id == $_SESSION['ong_id']){
+                $donodaong = true;
+            }
         }
 
     } else {
-        if(isset($_SESSION['ong_id'])){
+        if($_SESSION['tipo'] == "ADMIN"){
 
-            $id = $_SESSION['ong_id'];
-            $donodaong = true;
+        }else{
+            if(isset($_SESSION['ong_id'])){
+
+                $id = $_SESSION['ong_id'];
+                $donodaong = true;
+            }
         }
-
     }
 
     $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id='$id'");
@@ -68,6 +75,7 @@
 </head> 
 
 <body>
+    <?= print_r($_SESSION); ?>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="../index.php"> 
             <img src="../../images/logo.png"  class="thumbnail"  alt="Logo"> 
@@ -128,8 +136,9 @@
 
                         echo "
                             <li class='nav-item'> 
-                                <a class='nav-link active' href='$url' style='padding-right:18px;'>";
-                                    print($row['ong_nome']); 
+                                <a class='nav-link active' href='../$url' style='padding-right:18px;'>";
+                                    $nome = $_SESSION['login'];
+                                    print_r($nome); 
                         echo "  </a> 
                             </li>";
                     }
@@ -144,15 +153,17 @@
 
     <div class="containerPrincipal fadeIn first">
         <div class="containerPerfil">
+
+                <?php if($donodaong): ?>
+                    <button type="button" class="editar" onclick="window.location='editarongpfp.php'">Editar</button>
+                <?php endif; ?>
                 <h2 class="estadoOng"><?php echo $row['ong_estado']; ?><br>
                 <?php echo $row['ong_cidade']; ?></h2> 
                 <img src="../../uploads/img_ong/<?php echo $imagempadrao; ?>" class="Img"><br> 
                 <h2 class="telefoneOng"><?php echo $row['ong_telefone']; ?> <br>
                 <?php echo $row['ong_email']; ?> </h2>  
 
-                    <?php if($donodaong): ?>
-                        <a href="editarongpfp.php"> Editar </a>
-                    <?php endif; ?>
+                    
 
                     <h1 class="nomeOng"> <b> <?php echo $row['ong_nome']; ?> </b> </h1>
                     <h2 class="descricaoOng"> <?php echo $row['ong_descricao']; ?> </h2>
@@ -239,14 +250,20 @@
                     <h5>Conheça as ONG'S</h5>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="../logs/registerong.php">Cadastre a sua!</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="ongpage.php">Página de ONG'S</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="../ong/ongpage.php">Página de ONG'S</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md ft3">
-                    <h5>Sobre</h5>
+                    <h5>Conheça Nossos Animais!</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Por que da ideia?</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Nossa equipe</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="../pub/pubpage.php">Nossos Animais</a></li>
+                        <li class="nav-item"><p style="color: #303030; border-top: solid 1px black; text-decoration: none;
+                                                        color: black;
+                                                        float: left;
+                                                        padding: 12px;
+                                                        font-size: 23px;
+                                                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" 
+                                                        >©Todos Direitos Reservados</p></li>
                     </ul>
                 </div>
             </div>

@@ -76,7 +76,7 @@
 
                         echo "
                             <li class='nav-item'> 
-                                <a class='nav-link active' href='$url' style='padding-right:18px;'>";
+                                <a class='nav-link active' href='../$url' style='padding-right:18px;'>";
                                     $nome = $_SESSION['login'];
                                     print_r($nome); 
                         echo "  </a> 
@@ -106,13 +106,13 @@
     </div>
 
     <div class="fadeIn footer">
-        <footer class="container-fluid py-3" style="background: #A5EB78;">
+        <footer class="container-fluid py-3" style="background: #A5EB78; height: 125%;">
             <div class="row">
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="../index.php">Adote um animal</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Doe um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="../index">Adote um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="doarform.php">Doe um animal</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md ft2">
@@ -123,10 +123,16 @@
                     </ul>
                 </div>
                 <div class="col-6 col-md ft3">
-                    <h5>Sobre</h5>
+                    <h5>Conheça Nossos Animais!</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Por que da ideia?</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Nossa equipe</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="pubpage.php">Nossos Animais</a></li>
+                        <li class="nav-item"><p style="color: #303030; border-top: solid 1px black; text-decoration: none;
+                                                        color: black;
+                                                        float: left;
+                                                        padding: 12px;
+                                                        font-size: 23px;
+                                                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" 
+                                                        >©Todos Direitos Reservados</p></li>
                     </ul>
                 </div>
             </div>

@@ -1,7 +1,11 @@
 <?php
 
-    if($_SESSION['tipo'] == "ADMIN"){
-        $url = "#";
+    if($_SESSION){
+        if($_SESSION['tipo'] == "ADMIN"){
+            $url = "#";
+        }else{
+            $url = "ong/ongprofile.php";
+        }
     }else{
-        $url = "ong/ongprofile.php";
+        
     }
